@@ -1,3 +1,5 @@
+#include "Person.h"
+
 class Passenger : public Person{
 private:
 	bool payment_method;
