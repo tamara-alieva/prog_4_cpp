@@ -1,4 +1,7 @@
 #include "Checking.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
 bool Checking::nameCheck(string name) {
     int i = 0; bool f = 1;

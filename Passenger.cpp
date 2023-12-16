@@ -1,4 +1,8 @@
 #include "Passenger.h"
+#include "Person.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
 Passenger::Passenger() : Person() {
 	this->payment_method = 0;

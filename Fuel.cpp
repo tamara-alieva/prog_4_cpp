@@ -1,4 +1,8 @@
 #include "Fuel.h"
+#include "Checking.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
 Fuel::Fuel() {
 	this->capacity = 0;

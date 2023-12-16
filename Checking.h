@@ -1,10 +1,10 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#ifndef CHECKING_H
+#define CHECKING_H
 
 class Checking {
     public:
-    static bool nameCheck(string name);
-    static bool intCheck(string balance);
-    static bool boolCheck(string str);
+    static bool nameCheck(std::string name);
+    static bool intCheck(std::string balance);
+    static bool boolCheck(std::string str);
 };
+#endif

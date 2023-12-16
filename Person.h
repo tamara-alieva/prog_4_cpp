@@ -1,18 +1,20 @@
-#include "Checking.h"
+#ifndef PERSON_H
+#define PERSON_H
 
 class Person {
 private:
-	string name;
+	std::string name;
 	int balance;
 public:
 	Person();
-	Person(string name);
+	Person(std::string name);
 	Person(int balance);
-	Person(string name, int balance);
-	void setName(string name);
+	Person(std::string name, int balance);
+	void setName(std::string name);
 	void setBalance(int balance);
-	string getName();
+	std::string getName();
 	int getBalance();
 	void input();
 	void output();
 };
+#endif
