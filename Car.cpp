@@ -4,21 +4,25 @@ Car::Car() {
 	this->fuel = new Fuel();
 	this->brand = "";
 	this->rate = 0;
+	numberOfCars++;
 }
 Car::Car(string brand) {
 	this->fuel = new Fuel();
 	this->brand = brand;
 	this->rate = 0;
+	numberOfCars++;
 }
 Car::Car(bool rate) {
 	this->fuel = new Fuel();
 	this->brand = "";
 	this->rate = rate;
+	numberOfCars++;
 }
 Car::Car(string brand, bool rate) {
 	this->fuel = new Fuel();
 	this->brand = brand;
 	this->rate = rate;
+	numberOfCars++;
 }
 void Car::setBrand(string brand) {
 	this->brand = brand;
@@ -31,6 +35,9 @@ string Car::getBrand() {
 }
 bool Car::getRate() {
 	return this->rate;
+}
+int Car::getNumberOfCars() {
+	return numberOfCars;
 }
 void Car::input() {
 	string temp; bool flag;

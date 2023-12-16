@@ -3,6 +3,7 @@
 
 class Car {
 private:
+	static int numberOfCars;
 	string brand;
 	bool rate;
 public:
@@ -15,6 +16,7 @@ public:
 	void setRate(bool rate);
 	string getBrand();
 	bool getRate();
+	static int getNumberOfCars();
 	void input();
 	void output();
 };
