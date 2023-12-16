@@ -1,19 +1,21 @@
-void Person::Person() {
+#include "Person.h"
+
+Person::Person() {
 	this->name = "";
 	this->balance = 0;
 }
 
-void Person::Person(string name) {
+Person::Person(string name) {
 	this->name = name;
 	this->balance = 0;
 }
 
-void Person::Person(int balance) {
+Person::Person(int balance) {
 	this->name = "";
 	this->balance = balance;
 }
 
-void Person::Person(string name, int balance) {
+Person::Person(string name, int balance) {
 	this->name = name;
 	this->balance = balance;
 }
@@ -32,22 +34,26 @@ int Person::getBalance() {
 	return this->balance;
 }
 void Person::input() {
-	string temp;
-	cout << "** Ââîä äàííûõ ÷åëîâåêà **" << endl;
+	string temp; bool flag;
+	cout << "** Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ñ‡ÐµÐ»Ð¾Ð²ÐµÐºÐ° **" << endl;
 	do {
-		cout << "Ââåäèòå èìÿ: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ: ";
 		cin >> this->name;
-	} while (this->name.empty() || nameCheck(this->name) == 0);
+		flag = Checking::nameCheck(this->name);
+		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+	} while (!flag);
 	do {
-		cout << "Ââåäèòå áàëàíñ: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð±Ð°Ð»Ð°Ð½Ñ: : ";
 		cin >> temp;
-	} while (temp.empty() || intCheck(temp) == 0);
+		flag = Checking::intCheck(temp);
+		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+	} while (!flag);
 	this->balance = stoi(temp);
-	cout << "Äàííûå óñïåøíî ââåäåíû!" << endl << endl;
+	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ñ‹!" << endl << endl;
 }
 void Person::output() {
 	if (this->name.empty())
-		cout << "Äàííûå î ÷åëîâåêå îòñóòñòâóþò!" << endl;
+		cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ñ‡ÐµÐ»Ð¾Ð²ÐµÐºÐµ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‚!" << endl;
 	else
-		cout << "Äàííûå î ÷åëîâåêå:" << endl << "-Èìÿ: " << this->name << endl << "-Áàëàíñ: " << this->balance << endl;
+		cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ñ‡ÐµÐ»Ð¾Ð²ÐµÐºÐµ:" << endl << "-Ð˜Ð¼Ñ: " << this->name << endl << "-Ð‘Ð°Ð»Ð°Ð½Ñ: " << this->balance << endl;
 }
