@@ -1,13 +1,15 @@
-void Passenger::Passenger() : Person() {
+#include "Passenger.h"
+
+Passenger::Passenger() : Person() {
 	this->payment_method = 0;
 }
-void Passenger::Passenger(string name) : Person(name) {
+Passenger::Passenger(string name) : Person(name) {
 	this->payment_method = 0;
 }
-void Passenger::Passenger(int balance) : Person(balance) {
+Passenger::Passenger(int balance) : Person(balance) {
 	this->payment_method = 0;
 }
-void Passenger::Passenger(string name, int balance, bool method) : Person(name, balance) {
+Passenger::Passenger(string name, int balance, bool method) : Person(name, balance) {
 	this->payment_method = method;
 }
 void Passenger::setMethod(bool method) {
@@ -17,22 +19,24 @@ bool Passenger::getMethod() {
 	return this->payment_method;
 }
 void Passenger::input() {
-	string temp;
-	cout << "** Ââîä äàííûõ î ïàññàæèðå: " << this->getName() << " **" << endl;
+	string temp; bool flag;
+	cout << "** Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¾ Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ðµ: " << this->getName() << " **" << endl;
 	do {
-		cout << "Ââåäèòå ñïîñîá îïëàòû (0 - Íàëè÷íûå, 1 - Áàíêîâñêàÿ êàðòà): ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ¿Ð¾ÑÐ¾Ð± Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹ (0 - ÐÐ°Ð»Ð¸Ñ‡Ð½Ñ‹Ðµ, 1 - Ð‘Ð°Ð½ÐºÐ¾Ð²ÑÐºÐ°Ñ ÐºÐ°Ñ€Ñ‚Ð°): ";
 		cin >> temp;
-	} while (temp != "0" && temp != "1");
+		flag = Checking::boolCheck(temp);
+		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+	} while (!flag);
 	this->payment_method = stoi(temp);
-	cout << "Äàííûå óñïåøíî ââåäåíû!" << endl << endl;
+	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ñ‹!" << endl << endl;
 }
 void Passenger::output() {
-	cout << "Äàííûå î ïàññàæèðå:" << endl << "-Èìÿ: " << this->getName() << endl;
-	cout << "-Áàëàíñ: " << this->getBalance() << endl << "-Ñïîñîá îïëàòû: ";
+	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ðµ:" << endl << "-Ð˜Ð¼Ñ: " << this->getName() << endl;
+	cout << "-Ð‘Ð°Ð»Ð°Ð½Ñ: " << this->getBalance() << endl << "-Ð¡Ð¿Ð¾ÑÐ¾Ð± Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹: ";
 	if (this->getMethod())
-		cout << "Áàíêîâñêàÿ êàðòà" << endl << endl;
+		cout << "Ð‘Ð°Ð½ÐºÐ¾Ð²ÑÐºÐ°Ñ ÐºÐ°Ñ€Ñ‚Ð°" << endl << endl;
 	else
-		cout << "Íàëè÷íûå" << endl << endl;
+		cout << "ÐÐ°Ð»Ð¸Ñ‡Ð½Ñ‹Ðµ" << endl << endl;
 }
 void Passenger::takePayment(int payment) {
 	int old_balance = this->getBalance();

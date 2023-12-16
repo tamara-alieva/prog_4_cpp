@@ -1,16 +1,18 @@
-void Driver::Driver() : Person() {
+#include "Driver.h"
+
+Driver::Driver() : Person() {
 	this->experience = 0;
 	this->orderAmount = 0;
 }
-void Driver::Driver(string name) : Person(name) {
+Driver::Driver(string name) : Person(name) {
 	this->experience = 0;
 	this->orderAmount = 0;
 }
-void Driver::Driver(int balance) : Person(balance) {
+Driver::Driver(int balance) : Person(balance) {
 	this->experience = 0;
 	this->orderAmount = 0;
 }
-void Driver::Driver(string name, int balance, int experience, int orderAmount) : Person(name, balance) {
+Driver::Driver(string name, int balance, int experience, int orderAmount) : Person(name, balance) {
 	this->experience = experience;
 	this->orderAmount = orderAmount;
 }
@@ -27,25 +29,29 @@ int Driver::getOrderAmount() {
 	return this->orderAmount;
 }
 void Driver::input() {
-	string temp;
-	cout << "** Ââîä äàííûõ âîäèòåëÿ: " << this->getName() << " **" << endl;
+	string temp; bool flag;
+	cout << "** Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»Ñ: " << this->getName() << " **" << endl;
 	do {
-		cout << "Ââåäèòå êîëè÷åñòâî ëåò îïûòà: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð»ÐµÑ‚ Ð¾Ð¿Ñ‹Ñ‚Ð°: ";
 		cin >> temp;
-	} while (temp.empty() || intCheck(temp) == 0);
+		flag = Checking::intCheck(temp);
+		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+	} while (!flag);
 	this->experience = stoi(temp);
 	do {
-		cout << "Ââåäèòå êîëè÷åñòâî âûïîëíåííûõ çàêàçîâ: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð½Ñ‹Ñ… Ð·Ð°ÐºÐ°Ð·Ð¾Ð²: ";
 		cin >> temp;
-	} while (temp.empty() || intCheck(temp) == 0);
+		flag = Checking::intCheck(temp);
+		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+	} while (!flag);
 	this->orderAmount = stoi(temp);
-	cout << "Äàííûå óñïåøíî ââåäåíû!" << endl << endl;
+	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ñ‹!" << endl << endl;
 }
 void Driver::output() {
-	cout << "Äàííûå î âîäèòåëå:" << endl << "-Èìÿ: " << this->getName() << endl;
-	cout << "-Áàëàíñ: " << this->getBalance() << endl;
-	cout << "-Êîëè÷åñòâî ëåò îïûòà: " << this->getExperience() << endl;
-	cout << "-Êîëè÷åñòâî âûïîëíåííûõ çàêàçîâ: " << this->getOrderAmount() << endl << endl;
+	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»Ðµ:" << endl << "-Ð˜Ð¼Ñ: " << this->getName() << endl;
+	cout << "-Ð‘Ð°Ð»Ð°Ð½Ñ: " << this->getBalance() << endl;
+	cout << "-ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð»ÐµÑ‚ Ð¾Ð¿Ñ‹Ñ‚Ð°: " << this->getExperience() << endl;
+	cout << "-ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð½Ñ‹Ñ… Ð·Ð°ÐºÐ°Ð·Ð¾Ð²: " << this->getOrderAmount() << endl << endl;
 }
 void Driver::givePayment(int payment) {
 	int old_balance = this->getBalance();
