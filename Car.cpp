@@ -1,19 +1,21 @@
-void Car::Car() {
+#include "Car.h"
+
+Car::Car() {
 	this->fuel = new Fuel();
 	this->brand = "";
 	this->rate = 0;
 }
-void Car::Car(string brand) {
+Car::Car(string brand) {
 	this->fuel = new Fuel();
 	this->brand = brand;
 	this->rate = 0;
 }
-void Car::Car(bool rate) {
+Car::Car(bool rate) {
 	this->fuel = new Fuel();
 	this->brand = "";
 	this->rate = rate;
 }
-void Car::Car(string brand, bool rate) {
+Car::Car(string brand, bool rate) {
 	this->fuel = new Fuel();
 	this->brand = brand;
 	this->rate = rate;
@@ -31,27 +33,31 @@ bool Car::getRate() {
 	return this->rate;
 }
 void Car::input() {
-	string temp;
-	cout << "** Ââîä äàííûõ àâòîìîáèëÿ **" << endl;
+	string temp; bool flag;
+	cout << "** Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ñ **" << endl;
 	do {
-		cout << "Ââåäèòå ìàðêó: ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð°Ñ€ÐºÑƒ: ";
 		cin >> this->brand;
-	} while (this->brand.empty() || nameCheck(this->brand) == 0);
+		flag = Checking::nameCheck(this->brand);
+		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+	} while (!flag);
 	do {
-		cout << "Ââåäèòå êëàññ àâòîìîáèëÿ (0 - Ýêîíîì, 1 - Êîìôîðò): ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ»Ð°ÑÑ Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ñ (0 - Ð­ÐºÐ¾Ð½Ð¾Ð¼, 1 - ÐšÐ¾Ð¼Ñ„Ð¾Ñ€Ñ‚): ";
 		cin >> temp;
-	} while (temp != "0" && temp != "1");
+		flag = Checking::boolCheck(temp);
+		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+	} while (!flag);
 	this->rate = stoi(temp);
-	cout << "Äàííûå óñïåøíî ââåäåíû!" << endl << endl;
+	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ñ‹!" << endl << endl;
 }
 void Car::output() {
 	if (this->brand.empty())
-		cout << "Äàííûå îá àâòîìîáèëå îòñóòñòâóþò!" << endl;
+		cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾Ð± Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ðµ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‚!" << endl;
 	else {
-		cout << "Äàííûå îá àâòîìîáèëå:" << endl << "-Ìàðêà: " << this->brand << endl << "-Êëàññ: ";
+		cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾Ð± Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ðµ:" << endl << "-ÐœÐ°Ñ€ÐºÐ°: " << this->brand << endl << "-ÐšÐ»Ð°ÑÑ: ";
 		if (this->rate)
-			cout << "Êîìôîðò" << endl;
+			cout << "ÐšÐ¾Ð¼Ñ„Ð¾Ñ€Ñ‚" << endl;
 		else
-			cout << "Ýêîíîì" << endl;
+			cout << "Ð­ÐºÐ¾Ð½Ð¾Ð¼" << endl;
 	}
 }
