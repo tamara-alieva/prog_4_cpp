@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
 #include "Checking.h"
-using namespace std
 
 class Fuel {
 private:
