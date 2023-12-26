@@ -1,5 +1,4 @@
-#ifndef FUEL_H
-#define FUEL_H
+#pragma once
 
 class Fuel {
 private:
@@ -14,4 +13,3 @@ public:
 	void fill();
 	void empty();
 };
-#endif

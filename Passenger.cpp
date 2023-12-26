@@ -1,5 +1,5 @@
 #include "Passenger.h"
-#include "Person.h"
+#include "Checking.h"
 #include <iostream>
 #include <string>
 using namespace std;

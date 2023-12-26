@@ -1,5 +1,5 @@
-#ifndef PERSON_H
-#define PERSON_H
+#pragma once
+#include <string>
 
 class Person {
 private:
@@ -17,4 +17,3 @@ public:
 	void input();
 	void output();
 };
-#endif

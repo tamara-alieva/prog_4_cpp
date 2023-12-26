@@ -1,5 +1,4 @@
 #include "Driver.h"
-#include "Person.h"
 #include "Checking.h"
 #include <iostream>
 #include <string>

@@ -1,17 +1,12 @@
 #include "Checking.h"
 #include <iostream>
 #include <string>
+#include <regex>
 using namespace std;
 
 bool Checking::nameCheck(string name) {
-    int i = 0; bool f = 1;
-	for (i = 0; i < name.length(); i++) {
-		if ((name[i] >= 'A' && name[i] <= 'Z') || (name[i] >= 'a' && name[i] <= 'z') || (name[i] >= 'А' && name[i] <= 'Я') || (name[i] >= 'а' && name[i] <= 'я')) f = 1;
-		else {
-			f = 0;
-			break;
-		}
-	}
+    bool f = 1;
+	f = regex_match(name, regex("^[A-Za-zА-Яа-я]+$"));
 	return f;
 }
 bool Checking::intCheck(string balance) {

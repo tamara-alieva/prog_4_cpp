@@ -1,5 +1,7 @@
-#ifndef PASSENGER_H
-#define PASSENGER_H
+#pragma once
+
+#include "Person.h"
+#include <string>
 
 class Passenger : public Person{
 private:
@@ -15,4 +17,3 @@ public:
 	void output();
 	void takePayment(int payment);
 };
-#endif

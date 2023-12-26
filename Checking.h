@@ -1,5 +1,5 @@
-#ifndef CHECKING_H
-#define CHECKING_H
+#pragma once
+#include <string>
 
 class Checking {
     public:
@@ -7,4 +7,3 @@ class Checking {
     static bool intCheck(std::string balance);
     static bool boolCheck(std::string str);
 };
-#endif

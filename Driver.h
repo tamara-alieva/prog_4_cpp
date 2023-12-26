@@ -1,5 +1,7 @@
-#ifndef DRIVER_H
-#define DRIVER_H
+#pragma once
+
+#include "Person.h"
+#include <string>
 
 class Driver : public Person {
 private:
@@ -18,4 +20,3 @@ public:
 	void givePayment(int payment);
 	void increaseOrderAmount();
 };
-#endif
