@@ -5,6 +5,23 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "main", "main.vcxproj", "{92F4A680-0277-44C4-BB00-FFF08539022E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{4F3CD2EF-08D7-4339-A4FF-09D0F8E2D5B4}"
+	ProjectSection(SolutionItems) = preProject
+		..\Car.cpp = ..\Car.cpp
+		..\Car.h = ..\Car.h
+		..\Checking.cpp = ..\Checking.cpp
+		..\Checking.h = ..\Checking.h
+		..\Driver.cpp = ..\Driver.cpp
+		..\Driver.h = ..\Driver.h
+		..\Fuel.cpp = ..\Fuel.cpp
+		..\Fuel.h = ..\Fuel.h
+		main.cpp = main.cpp
+		..\Passenger.cpp = ..\Passenger.cpp
+		..\Passenger.h = ..\Passenger.h
+		..\Person.cpp = ..\Person.cpp
+		..\Person.h = ..\Person.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

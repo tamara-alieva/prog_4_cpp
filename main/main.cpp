@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "../Car.h"
 #include "../Fuel.h"
+#include "../Car.h"
 #include "../Driver.h"
 #include "../Passenger.h"
 #include <iostream>
@@ -9,6 +9,11 @@
 using namespace std;
 
 int Car::numberOfCars = 0; // инициализация статического поля
+
+int main() {
+    return 0;
+}
+
 
 int main() {
     setlocale(LC_ALL, "Russian");

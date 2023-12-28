@@ -5,9 +5,9 @@
 
 class Car {
 private:
-	static int numberOfCars;
 	std::string brand;
 	bool rate;
+	static int numberOfCars;
 public:
 	Fuel fuel;
 	Car();

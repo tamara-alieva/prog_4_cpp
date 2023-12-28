@@ -5,6 +5,8 @@
 #include <string>
 using namespace std;
 
+int Car::numberOfCars;
+
 Car::Car() {
 	this->fuel = new Fuel();
 	this->brand = "";
