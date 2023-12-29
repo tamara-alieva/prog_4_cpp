@@ -34,28 +34,28 @@ int Driver::getOrderAmount() {
 }
 void Driver::input() {
 	string temp; bool flag;
-	cout << "** Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»Ñ: " << this->getName() << " **" << endl;
+	cout << "** Ââîä äàííûõ âîäèòåëÿ: " << this->getName() << " **" << endl;
 	do {
-		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð»ÐµÑ‚ Ð¾Ð¿Ñ‹Ñ‚Ð°: ";
+		cout << "Ââåäèòå êîëè÷åñòâî ëåò îïûòà: ";
 		cin >> temp;
 		flag = Checking::intCheck(temp);
-		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+		if (!flag) cout << "Ïîïðîáóéòå åù¸ ðàç. ";
 	} while (!flag);
 	this->experience = stoi(temp);
 	do {
-		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð½Ñ‹Ñ… Ð·Ð°ÐºÐ°Ð·Ð¾Ð²: ";
+		cout << "Ââåäèòå êîëè÷åñòâî âûïîëíåííûõ çàêàçîâ: ";
 		cin >> temp;
 		flag = Checking::intCheck(temp);
-		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+		if (!flag) cout << "Ïîïðîáóéòå åù¸ ðàç. ";
 	} while (!flag);
 	this->orderAmount = stoi(temp);
-	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ñ‹!" << endl << endl;
+	cout << "Äàííûå óñïåøíî ââåäåíû!" << endl << endl;
 }
 void Driver::output() {
-	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»Ðµ:" << endl << "-Ð˜Ð¼Ñ: " << this->getName() << endl;
-	cout << "-Ð‘Ð°Ð»Ð°Ð½Ñ: " << this->getBalance() << endl;
-	cout << "-ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð»ÐµÑ‚ Ð¾Ð¿Ñ‹Ñ‚Ð°: " << this->getExperience() << endl;
-	cout << "-ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð½Ñ‹Ñ… Ð·Ð°ÐºÐ°Ð·Ð¾Ð²: " << this->getOrderAmount() << endl << endl;
+	cout << "Äàííûå î âîäèòåëå:" << endl << "-Èìÿ: " << this->getName() << endl;
+	cout << "-Áàëàíñ: " << this->getBalance() << endl;
+	cout << "-Êîëè÷åñòâî ëåò îïûòà: " << this->getExperience() << endl;
+	cout << "-Êîëè÷åñòâî âûïîëíåííûõ çàêàçîâ: " << this->getOrderAmount() << endl << endl;
 }
 void Driver::givePayment(int payment) {
 	int old_balance = this->getBalance();

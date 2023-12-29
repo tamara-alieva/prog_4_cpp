@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-int Car::numberOfCars;
+int Car::numberOfCars = 0; // èíèöèàëèçàöèÿ ñòàòè÷åñêîãî ïîëÿ
 
 Car::Car() {
 	this->fuel = new Fuel();
@@ -48,30 +48,30 @@ int Car::getNumberOfCars() {
 }
 void Car::input() {
 	string temp; bool flag;
-	cout << "** Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ñ **" << endl;
+	cout << "** Ââîä äàííûõ àâòîìîáèëÿ **" << endl;
 	do {
-		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð°Ñ€ÐºÑƒ: ";
+		cout << "Ââåäèòå ìàðêó: ";
 		cin >> this->brand;
 		flag = Checking::nameCheck(this->brand);
-		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+		if (!flag) cout << "Ïîïðîáóéòå åù¸ ðàç. ";
 	} while (!flag);
 	do {
-		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ»Ð°ÑÑ Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ñ (0 - Ð­ÐºÐ¾Ð½Ð¾Ð¼, 1 - ÐšÐ¾Ð¼Ñ„Ð¾Ñ€Ñ‚): ";
+		cout << "Ââåäèòå êëàññ àâòîìîáèëÿ (0 - Ýêîíîì, 1 - Êîìôîðò): ";
 		cin >> temp;
 		flag = Checking::boolCheck(temp);
-		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+		if (!flag) cout << "Ïîïðîáóéòå åù¸ ðàç. ";
 	} while (!flag);
 	this->rate = stoi(temp);
-	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ñ‹!" << endl << endl;
+	cout << "Äàííûå óñïåøíî ââåäåíû!" << endl << endl;
 }
 void Car::output() {
 	if (this->brand.empty())
-		cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾Ð± Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ðµ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‚!" << endl;
+		cout << "Äàííûå îá àâòîìîáèëå îòñóòñòâóþò!" << endl;
 	else {
-		cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾Ð± Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»Ðµ:" << endl << "-ÐœÐ°Ñ€ÐºÐ°: " << this->brand << endl << "-ÐšÐ»Ð°ÑÑ: ";
+		cout << "Äàííûå îá àâòîìîáèëå:" << endl << "-Ìàðêà: " << this->brand << endl << "-Êëàññ: ";
 		if (this->rate)
-			cout << "ÐšÐ¾Ð¼Ñ„Ð¾Ñ€Ñ‚" << endl;
+			cout << "Êîìôîðò" << endl;
 		else
-			cout << "Ð­ÐºÐ¾Ð½Ð¾Ð¼" << endl;
+			cout << "Ýêîíîì" << endl;
 	}
 }

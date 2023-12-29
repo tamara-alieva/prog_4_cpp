@@ -24,23 +24,23 @@ bool Passenger::getMethod() {
 }
 void Passenger::input() {
 	string temp; bool flag;
-	cout << "** Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¾ Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ðµ: " << this->getName() << " **" << endl;
+	cout << "** Ââîä äàííûõ î ïàññàæèðå: " << this->getName() << " **" << endl;
 	do {
-		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ¿Ð¾ÑÐ¾Ð± Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹ (0 - ÐÐ°Ð»Ð¸Ñ‡Ð½Ñ‹Ðµ, 1 - Ð‘Ð°Ð½ÐºÐ¾Ð²ÑÐºÐ°Ñ ÐºÐ°Ñ€Ñ‚Ð°): ";
+		cout << "Ââåäèòå ñïîñîá îïëàòû (0 - Íàëè÷íûå, 1 - Áàíêîâñêàÿ êàðòà): ";
 		cin >> temp;
 		flag = Checking::boolCheck(temp);
-		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+		if (!flag) cout << "Ïîïðîáóéòå åù¸ ðàç. ";
 	} while (!flag);
 	this->payment_method = stoi(temp);
-	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ñ‹!" << endl << endl;
+	cout << "Äàííûå óñïåøíî ââåäåíû!" << endl << endl;
 }
 void Passenger::output() {
-	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ð¿Ð°ÑÑÐ°Ð¶Ð¸Ñ€Ðµ:" << endl << "-Ð˜Ð¼Ñ: " << this->getName() << endl;
-	cout << "-Ð‘Ð°Ð»Ð°Ð½Ñ: " << this->getBalance() << endl << "-Ð¡Ð¿Ð¾ÑÐ¾Ð± Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹: ";
+	cout << "Äàííûå î ïàññàæèðå:" << endl << "-Èìÿ: " << this->getName() << endl;
+	cout << "-Áàëàíñ: " << this->getBalance() << endl << "-Ñïîñîá îïëàòû: ";
 	if (this->getMethod())
-		cout << "Ð‘Ð°Ð½ÐºÐ¾Ð²ÑÐºÐ°Ñ ÐºÐ°Ñ€Ñ‚Ð°" << endl << endl;
+		cout << "Áàíêîâñêàÿ êàðòà" << endl << endl;
 	else
-		cout << "ÐÐ°Ð»Ð¸Ñ‡Ð½Ñ‹Ðµ" << endl << endl;
+		cout << "Íàëè÷íûå" << endl << endl;
 }
 void Passenger::takePayment(int payment) {
 	int old_balance = this->getBalance();

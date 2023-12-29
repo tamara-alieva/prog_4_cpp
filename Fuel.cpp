@@ -18,22 +18,22 @@ bool Fuel::getCapacity() {
 }
 void Fuel::input() {
 	string temp; bool flag;
-	cout << "** Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¾ Ñ‚Ð¾Ð¿Ð»Ð¸Ð²Ð½Ð¾Ð¼ Ð±Ð°ÐºÐµ **" << endl;
+	cout << "** Ââîä äàííûõ î òîïëèâíîì áàêå **" << endl;
 	do {
-		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð°Ð¿Ð¾Ð»ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ Ð±Ð°ÐºÐ° (0 - ÐŸÑƒÑÑ‚Ð¾Ð¹, 1 - ÐŸÐ¾Ð»Ð½Ñ‹Ð¹): ";
+		cout << "Ââåäèòå çàïîëåííîñòü áàêà (0 - Ïóñòîé, 1 - Ïîëíûé): ";
 		cin >> temp;
 		flag = Checking::boolCheck(temp);
-		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+		if (!flag) cout << "Ïîïðîáóéòå åù¸ ðàç. ";
 	} while (!flag);
 	this->capacity = stoi(temp);
-	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ñ‹!" << endl << endl;
+	cout << "Äàííûå óñïåøíî ââåäåíû!" << endl << endl;
 }
 void Fuel::output() {
-	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ñ‚Ð¾Ð¿Ð»Ð¸Ð²Ð½Ð¾Ð¼ Ð±Ð°ÐºÐµ:" << endl << "-Ð—Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ: ";
+	cout << "Äàííûå î òîïëèâíîì áàêå:" << endl << "-Çàïîëíåííîñòü: ";
 	if (this->getCapacity())
-		cout << "ÐŸÐ¾Ð»Ð½Ñ‹Ð¹" << endl << endl;
+		cout << "Ïîëíûé" << endl << endl;
 	else
-		cout << "ÐŸÑƒÑÑ‚Ð¾Ð¹" << endl << endl;
+		cout << "Ïóñòîé" << endl << endl;
 }
 void Fuel::fill() {
 	this->capacity = 1;

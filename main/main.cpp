@@ -6,27 +6,23 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
+#include <locale.h>
 using namespace std;
-
-int Car::numberOfCars = 0; // –∏–Ω–∏—Ü–∏–∞–ª–∏–∑–∞—Ü–∏—è —Å—Ç–∞—Ç–∏—á–µ—Å–∫–æ–≥–æ –ø–æ–ª—è
-
-int main() {
-    return 0;
-}
-
 
 int main() {
     setlocale(LC_ALL, "Russian");
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     string buffer;
+    buffer = "Kia Rio";
+    cout << "“≈—“€:" << endl;
+    cout << "1) —Ú‡ÚË˜ÂÒÍÓÂ ÔÓÎÂ numberOfCars Ë ÏÂÚÓ‰ getNumberOfCars" << endl;
+    Car car_1{buffer};
     buffer = "Toyota";
-    cout << "–¢–ï–°–¢–´:" << endl;
-    cout << "1) –°—Ç–∞—Ç–∏—á–µ—Å–∫–æ–µ –ø–æ–ª–µ numberOfCars –∏ –º–µ—Ç–æ–¥ getNumberOfCars" << endl;
-    Car car_1{"Kia Rio"};
     Car car_2{buffer};
-    Car car_3{"Volvo", true};
-    cout << "–ö–æ–ª–∏—á–µ—Å—Ç–≤–æ —Å–æ–∑–¥–∞–Ω–Ω—ã—Ö –æ–±—ä–µ–∫—Ç–æ–≤ Car: " + Car::getNumberOfCars() << endl << endl;
+    buffer = "Volvo";
+    Car car_3{buffer, true};
+    cout << " ÓÎË˜ÂÒÚ‚Ó ÒÓÁ‰‡ÌÌ˚ı Ó·˙ÂÍÚÓ‚ Car: " << Car::getNumberOfCars() << endl << endl;
     Person pers{"Ivan", 600};
     pers.output();
     return 0;

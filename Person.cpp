@@ -39,25 +39,25 @@ int Person::getBalance() {
 }
 void Person::input() {
 	string temp; bool flag;
-	cout << "** Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ñ‡ÐµÐ»Ð¾Ð²ÐµÐºÐ° **" << endl;
+	cout << "** Ââîä äàííûõ ÷åëîâåêà **" << endl;
 	do {
-		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ: ";
+		cout << "Ââåäèòå èìÿ: ";
 		cin >> this->name;
 		flag = Checking::nameCheck(this->name);
-		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+		if (!flag) cout << "Ïîïðîáóéòå åù¸ ðàç. ";
 	} while (!flag);
 	do {
-		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð±Ð°Ð»Ð°Ð½Ñ: : ";
+		cout << "Ââåäèòå áàëàíñ: ";
 		cin >> temp;
 		flag = Checking::intCheck(temp);
-		if (!flag) cout << "ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·. ";
+		if (!flag) cout << "Ïîïðîáóéòå åù¸ ðàç. ";
 	} while (!flag);
 	this->balance = stoi(temp);
-	cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð²ÐµÐ´ÐµÐ½Ñ‹!" << endl << endl;
+	cout << "Äàííûå óñïåøíî ââåäåíû!" << endl << endl;
 }
 void Person::output() {
 	if (this->name.empty())
-		cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ñ‡ÐµÐ»Ð¾Ð²ÐµÐºÐµ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‚!" << endl;
+		cout << "Äàííûå î ÷åëîâåêå îòñóòñòâóþò!" << endl;
 	else
-		cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ Ñ‡ÐµÐ»Ð¾Ð²ÐµÐºÐµ:" << endl << "-Ð˜Ð¼Ñ: " << this->name << endl << "-Ð‘Ð°Ð»Ð°Ð½Ñ: " << this->balance << endl;
+		cout << "Äàííûå î ÷åëîâåêå:" << endl << "-Èìÿ: " << this->name << endl << "-Áàëàíñ: " << this->balance << endl;
 }
