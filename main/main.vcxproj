@@ -26,6 +26,7 @@
     <ClCompile Include="..\Passenger.cpp" />
     <ClCompile Include="..\Person.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Order.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Car.h" />
@@ -34,6 +35,7 @@
     <ClInclude Include="..\Fuel.h" />
     <ClInclude Include="..\Passenger.h" />
     <ClInclude Include="..\Person.h" />
+    <ClInclude Include="Order.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

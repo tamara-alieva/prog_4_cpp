@@ -3,6 +3,7 @@
 #include "../Car.h"
 #include "../Driver.h"
 #include "../Passenger.h"
+#include "Order.h"
 #include <iostream>
 #include <string>
 #include <Windows.h>
@@ -23,7 +24,11 @@ int main() {
     buffer = "Volvo";
     Car car_3{buffer, true};
     cout << "Количество созданных объектов Car: " << Car::getNumberOfCars() << endl << endl;
-    Person pers{"Ivan", 600};
-    pers.output();
+    cout << "2) Возврат значения из метода rateString класса Order через указатель (*)" << endl;
+    bool f = 1;
+    cout << "Возвращаемая строка: " << *(Order::rateString(f, &buffer)) << endl << endl;
+    cout << "3) Возврат значения из метода congestionString класса Order через ссылку" << endl;
+    cout << "Возвращаемая строка: " << Order::congestionString(f, buffer) << endl << endl;
+
     return 0;
 }
