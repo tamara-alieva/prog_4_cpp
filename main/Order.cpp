@@ -26,7 +26,7 @@ Order::Order(bool rate, bool congestion, Passenger passenger, Driver driver, Car
 		}
 		else {
 			if (rate) { // Класс поездки - Комфорт
-				if (driver.getExperience() < 10 || driver.getOrderAmount() < 30) {
+				if (getExperience(driver) < 10 || getOrderAmount(driver) < 30) {
 					cout << "У выбранного водителя недостаточно лет опыта или завершённых заказов для выполнения заказа уровня Комфорт!";
 				}
 				else {
@@ -45,8 +45,8 @@ Order::Order(bool rate, bool congestion, Passenger passenger, Driver driver, Car
 	}
 	if (this->status == 1) {
 		passenger.takePayment(payment);
-		driver.givePayment(payment);
-		driver.increaseOrderAmount();
+		givePayment(payment, driver);
+		increaseOrderAmount(driver);
 		car.fuel.empty();
 		cout << "Заказ выполнен успешно! Информация на момент завершения заказа:" << endl << endl;
 		string buffer;
