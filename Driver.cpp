@@ -20,48 +20,67 @@ Driver::Driver(string name, int balance, int experience, int orderAmount) : Pers
 	this->experience = experience;
 	this->orderAmount = orderAmount;
 }
-void Driver::setExperience(int experience) {
-	this->experience = experience;
+
+// Дружественные функции
+void setExperience(int experience, Driver& driver) {
+	driver.experience = experience;
 }
-void Driver::setOrderAmount(int orderAmount) {
-	this->orderAmount = orderAmount;
+void setOrderAmount(int orderAmount, Driver& driver) {
+	driver.orderAmount = orderAmount;
 }
-int Driver::getExperience() {
-	return this->experience;
+int getExperience(Driver& driver) {
+	return driver.experience;
 }
-int Driver::getOrderAmount() {
-	return this->orderAmount;
+int getOrderAmount(Driver& driver) {
+	return driver.orderAmount;
 }
-void Driver::input() {
+void givePayment(int payment, Driver& driver) {
+	int old_balance = driver.getBalance();
+	driver.setBalance(old_balance + payment);
+}
+void increaseOrderAmount(Driver& driver) {
+	int old_amount = getOrderAmount(driver);
+	setOrderAmount(old_amount + 1, driver);
+}
+void input(Driver& driver) {
 	string temp; bool flag;
-	cout << "** Ввод данных водителя: " << this->getName() << " **" << endl;
+	cout << "** Ввод данных водителя: " << driver.getName() << " **" << endl;
 	do {
 		cout << "Введите количество лет опыта: ";
 		cin >> temp;
 		flag = Checking::intCheck(temp);
 		if (!flag) cout << "Попробуйте ещё раз. ";
 	} while (!flag);
-	this->experience = stoi(temp);
+	driver.experience = stoi(temp);
 	do {
 		cout << "Введите количество выполненных заказов: ";
 		cin >> temp;
 		flag = Checking::intCheck(temp);
 		if (!flag) cout << "Попробуйте ещё раз. ";
 	} while (!flag);
-	this->orderAmount = stoi(temp);
+	driver.orderAmount = stoi(temp);
 	cout << "Данные успешно введены!" << endl << endl;
 }
-void Driver::output() {
-	cout << "Данные о водителе:" << endl << "-Имя: " << this->getName() << endl;
-	cout << "-Баланс: " << this->getBalance() << endl;
-	cout << "-Количество лет опыта: " << this->getExperience() << endl;
-	cout << "-Количество выполненных заказов: " << this->getOrderAmount() << endl << endl;
+void output(Driver& driver) {
+	cout << "Данные о водителе:" << endl << "-Имя: " << driver.getName() << endl;
+	cout << "-Баланс: " << driver.getBalance() << endl;
+	cout << "-Количество лет опыта: " << getExperience(driver) << endl;
+	cout << "-Количество выполненных заказов: " << getOrderAmount(driver) << endl << endl;
 }
-void Driver::givePayment(int payment) {
-	int old_balance = this->getBalance();
-	this->setBalance(old_balance + payment);
+
+// Перегрузка операторов
+Driver operator + (Driver& driver1, Driver& driver2) // Оператор +
+{
+	return Driver(driver1.getBalance() + driver2.getBalance());
 }
-void Driver::increaseOrderAmount() {
-	int old_amount = this->getOrderAmount();
-	this->setOrderAmount(old_amount + 1);
+Driver& operator++ (Driver& driver) // Префиксный оператор ++
+{
+	setExperience(getExperience(driver) + 1, driver);
+	return driver;
+}
+Driver operator++ (Driver& driver, int) // Постфиксный оператор ++
+{
+	Driver copy(driver);
+	++driver;
+	return copy;
 }
